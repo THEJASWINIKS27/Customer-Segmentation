@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import pandas as pd
 from sklearn.cluster import KMeans
 from io import StringIO
+import os
 
 app = Flask(__name__)
 
@@ -27,9 +28,6 @@ def predict():
 
     return jsonify(df.to_dict(orient="records"))
 
-import os
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port, debug=True)
-

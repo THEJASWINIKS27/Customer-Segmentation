@@ -13,7 +13,9 @@ if uploaded_file:
     
     if st.button("Predict Segments"):
         files = {"file": uploaded_file.getvalue()}
-        response = requests.post("http://127.0.0.1:8000/predict/", files=files)
+        response = requests.post("http://localhost:8000/predict/", files=files)
+
+
 
         
         if response.status_code == 200:
